@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        
+        <h2 hidden> 2. Do not touch blue</h2>
+        
+ 
+        <style type="text/css">
+        
+            body {
+                background-color:white;
+                margin:0;
+            }
+            h2 {
+                font-family: fantasy;
+                color:aliceblue;
+            }
+        
+            #initial {
+                background-color:cornsilk;
+                text-decoration: none;
+                border-radius: 50%;
+                font-size: 24px;
+            }
+            
+            #initial:hover {
+                background-color:aqua;
+            }
+            
+            #divInitial {
+                position:absolute;
+                top: 200px;
+            }
+            
+            #startingBox {
+                position:absolute;
+                width: 200px;
+                height: 100px;
+                background-color:white;
+                border: none;
+                top: 150px;
+            }
+            
+            #finalBox {
+                background-color:cornsilk;
+                text-decoration: none;
+                font-size: 24px;
+            }
+            
+            #finalBox:hover {
+                background-color:aqua;
+            }
+            
+            
+            #divFinalBox {
+                position:absolute;
+                left: 90%;
+                top: 90%;
+            }
+            
+            #pathHorizontal {
+                position:absolute;
+                background-color: white;
+                width: 2000px;
+                height: 15px;
+                top: 200px;
+                left: 200px;
+            }
+            
+            #pathVertical {
+                position:absolute;
+                background-color: white;
+                width: 15px;
+                height: 450px;
+                left: 95%;
+            }
+        
+        </style>
+    
+    
+    </head>
+
+    <body>
+    
+        <div id="divInitial">
+            <a>
+                <button type="button" id="initial"> Click Me!</button>
+            </a>
+        </div>  
+        
+        
+        <div id="overall">
+        
+            <p id="startingBox" hidden>Start</p>
+            
+            <a href="levelThree.html" id="divFinalBox" hidden>
+                <button type="button" id="finalBox"> Click Me!</button>
+        
+            </a>
+            
+            <p id="pathHorizontal" hidden></p>
+            <p id="pathVertical" hidden></p>
+    
+        
+            
+        </div>
+        
+        
+        
+        <script src = "jquery-1.12.4.min.js"></script>
+        
+        
+        <script>
+        
+        $('#initial').click(function(){
+            $('#divInitial').fadeOut();
+            $('h2').fadeIn();
+            $('body').css('background-color', 'blue');
+            $('#startingBox').fadeIn();
+            $('#divFinalBox').fadeIn();
+            $('#pathHorizontal').fadeIn();
+            $('#pathVertical').fadeIn();
+            $('#overall').mouseleave(function() {
+                alert("You lost!");
+                window.location.replace('index.html');
+            });
+              
+        });
+        
+        
+        </script>
+        
+        
+     
+    
+    </body>
+
+
+
+
+
+</html>

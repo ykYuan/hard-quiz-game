@@ -1,0 +1,302 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        
+        <script src = "jquery-1.12.4.min.js"></script>
+        
+        <script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
+        
+        <script src ="jcanvas.min.js"></script>
+        
+        <h2> 4. </h2>
+        
+        <style type = "text/css">
+            h2 {
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                font-style:oblique;
+                font-family:sans-serif;
+                color:blueviolet;
+            }
+            
+            canvas {
+                position: absolute;
+                left: 100px;
+                top: 100px;
+                border-style: double;
+                border-color: black;
+                background-color: black;
+            }
+            
+            
+            #startButton {
+                position: absolute;
+                top: 280px;
+                left: 400px;
+            }
+        </style>
+    </head>
+    
+    
+    
+    <body>
+        <canvas width="800" height="400"></canvas>       
+        <div class="container" id="startButton">
+                <button> Catch the star and avoid the asteroids! </button>
+        </div>
+        
+        
+        <script>
+ 
+            $('#startButton').click(function() {
+                $('#startButton').remove();
+                
+                //asteroid 1
+               setInterval (function() {
+                   $('canvas').drawImage({
+                    layer: true,
+                    source: 'levelFourImages/asteroid.jpg',
+                    name: 'asteroid1',
+                    fillStyle: '#36c',
+                    x: 100, y: 100,
+                    width: 80, height: 80,
+                    mouseover(layer) {
+                        alert("You lost!");
+                        window.location.replace('index.html');
+                    }
+                   });
+                    $('canvas').animateLayer('asteroid1', {
+                        x: 600, y: 400,
+                        rotate: 360,
+                        width: 80, height: 80
+                    }, 1000, function(layer) {
+                        $('canvas').removeLayer('asteroid1');
+                    });
+               }, 2000); 
+                
+                 //asteroid 2
+                
+                
+                setInterval (function(){ 
+                    $('canvas').drawImage({
+                    layer: true,
+                    source: 'levelFourImages/asteroid.jpg',
+                    name: 'asteroid2',
+                    fillStyle: '#36c',
+                    x: 600, y: 400,
+                    width: 80, height: 80,
+                    mouseover(layer) {
+                        alert("You lost!");
+                        window.location.replace('index.html');
+                    }
+                    });
+                    $('canvas').animateLayer('asteroid2', {
+                        x: 0, y: 0,
+                        rotate: 360,
+                        width: 80, height: 80
+                    }, 2000, function(layer) {
+                        $('canvas').removeLayer('asteroid2');
+                    });     
+                }, 3000);
+                
+                
+             
+                
+                //asteroid 3
+                setInterval (function(){
+                    $('canvas').drawImage({
+                    layer: true,
+                    source: 'levelFourImages/asteroid.jpg',
+                    name: 'asteroid3',
+                    fillStyle: '#36c',
+                    x: 300, y: 0,
+                    width: 80, height: 80,
+                    mouseover(layer) {
+                        alert("You lost!");
+                        window.location.replace('index.html');
+                    }
+                    });
+                    $('canvas').animateLayer('asteroid3', {
+                        x: 300, y:600,
+                        rotate: 360,
+                        width: 80, height: 80
+                    }, 1000, function(layer) {
+                        $('canvas').removeLayer('asteroid3');
+                    });
+                }, 2000);
+                
+                
+                
+                //asteroid 4
+                setInterval(function(){
+                    $('canvas').drawImage({
+                    layer: true,
+                    source: 'levelFourImages/asteroid.jpg',
+                    name: 'asteroid4',
+                    fillStyle: '#36c',
+                    x: 800, y: 200,
+                    width: 80, height: 80,
+                    mouseover(layer) {
+                        alert("You lost!");
+                        window.location.replace('index.html');
+                    }
+                    });
+                    $('canvas').animateLayer('asteroid4', {
+                        x: 200, y:200,
+                        rotate: 360,
+                        width: 200, height: 200
+                    }, 4000, function(layer) {
+                        $('canvas').removeLayer('asteroid4');
+                    });
+                }, 5000);
+                
+                
+                
+                //asteroid 5
+                setInterval(function(){
+                    $('canvas').drawImage({
+                    layer: true,
+                    source: 'levelFourImages/asteroid.jpg',
+                    name: 'asteroid5',
+                    fillStyle: '#36c',
+                    x: 700, y: 200,
+                    width: 80, height: 80,
+                    mouseover(layer) {
+                        alert("You lost!");
+                        window.location.replace('index.html');
+                    }
+                    });
+                    $('canvas').animateLayer('asteroid5', {
+                        x: 400, y:400,
+                        rotate: 360,
+                        width: 200, height: 200
+                    }, 4000, function(layer) {
+                        $('canvas').removeLayer('asteroid5');
+                    }); 
+                }, 4500);
+                
+                //asteroid 6
+                setInterval(function(){
+                    $('canvas').drawImage({
+                    layer: true,
+                    source: 'levelFourImages/asteroid.jpg',
+                    name: 'asteroid6',
+                    fillStyle: '#36c',
+                    x: 800, y: 50,
+                    width: 80, height: 80,
+                    mouseover(layer) {
+                        alert("You lost!");
+                        window.location.replace('index.html');
+                    }
+                    });
+                    $('canvas').animateLayer('asteroid6', {
+                        x: 800, y:600,
+                        rotate: 360,
+                        width: 80, height: 80
+                    }, 2000, function(layer) {
+                        $('canvas').removeLayer('asteroid6');
+                    });
+                }, 2500);   
+                
+                
+                //asteroid 7
+                setInterval(function(){
+                    $('canvas').drawImage({
+                    layer: true,
+                    source: 'levelFourImages/asteroid.jpg',
+                    name: 'asteroid7',
+                    fillStyle: '#36c',
+                    x: 800, y: 100,
+                    width: 80, height: 80,
+                    mouseover(layer) {
+                        alert("You lost!");
+                        window.location.replace('index.html');
+                    }
+                    });
+                    $('canvas').animateLayer('asteroid7', {
+                        x: 400, y:600,
+                        rotate: 360,
+                        width: 80, height: 80
+                    }, 2000, function(layer) {
+                        $('canvas').removeLayer('asteroid7');
+                    });
+                }, 2500);
+                
+                //asteroid 8
+                
+                setInterval(function(){
+                    $('canvas').drawImage({
+                    layer: true,
+                    source: 'levelFourImages/asteroid.jpg',
+                    name: 'asteroid8',
+                    fillStyle: '#36c',
+                    x: 100, y: 100,
+                    width: 80, height: 80,
+                    mouseover(layer) {
+                        alert("You lost!");
+                        window.location.replace('index.html');
+                    }
+                    });
+                    $('canvas').animateLayer('asteroid8', {
+                        x: 800, y:100,
+                        rotate: 360,
+                        width: 80, height: 80
+                    }, 2000, function(layer) {
+                        $('canvas').removeLayer('asteroid8');
+                    });
+                }, 2500);
+                
+                
+                //star 1
+                
+                setTimeout(function(){
+                    $('canvas').drawImage({
+                    layer: true,
+                    source: 'levelFourImages/star.png',
+                    name: 'star1',
+                    fillStyle: '#36c',
+                    x: 0, y: 200,
+                    width: 80, height: 80,
+                    mouseover(layer) {
+                        alert("Congrats!!");
+                        window.location.replace('levelFive.html');
+                    }
+                    });
+                    $('canvas').animateLayer('star1', {
+                        x: 800, y:200,
+                        rotate: 360,
+                        width: 80, height: 80
+                    }, 1000, function(layer) {
+                        $('canvas').removeLayer('star1');
+                    });
+                }, 5000);
+                
+                //Delay penalty
+                setTimeout(function(){
+                    alert("You lost!");
+                    window.location.replace('index.html');
+                }, 10000);
+                
+                
+                
+            });
+            
+            
+            
+
+        
+        </script>
+    
+    
+    </body>
+
+
+
+
+
+</html>
