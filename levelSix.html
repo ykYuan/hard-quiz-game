@@ -1,0 +1,231 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        
+        <script src = "jquery-1.12.4.min.js"></script>
+        
+        <script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
+        
+        <script src ="jcanvas.min.js"></script>
+        
+        <h2> 6. </h2>
+        
+        <style type = "text/css">
+            
+            h2 {
+                position: absolute;
+                left: 3%;
+            }
+            
+            #snorlax {
+                width: 100px;
+                
+            }
+            
+            canvas {
+                position: absolute;
+                left: 100px;
+                top: 100px;
+                border-color: black;
+                border-style: double;
+                border-width: thick;
+            }
+            
+            
+        </style>
+    </head>
+    
+    
+    
+    <body>
+        <canvas width="800" height="400"></canvas>
+        
+        
+        <script>
+ 
+            var posX=100;
+            var posY=100;
+            $('canvas').drawImage({
+                    layer: true,
+                    source: 'images/snorlax.png',
+                    name: 'snorlax',
+                    fillStyle: '#36c',
+                    x: 100, y: 100,             
+            });
+            
+            
+            //moving snorlax using up arrow keys
+            $(document).keydown(function(e) {
+                switch (e.which) {
+                    case 37:
+                        posX=posX-10;
+                        $('canvas').animateLayer('snorlax', {
+                            x: posX
+                        });
+                        break;
+                    
+                    case 38:
+                        posY=posY-10;
+                        $('canvas').animateLayer('snorlax', {
+                            y: posY
+                        });
+                        break;
+                        
+                        
+                    case 39:
+                        posX=posX+10;
+                        $('canvas').animateLayer('snorlax', {
+                            x: posX
+                        });
+                        break;
+                    
+                    case 40:
+                        posY=posY+10;
+                        $('canvas').animateLayer('snorlax', {
+                            y: posY
+                        });
+                        break;
+
+                }
+                
+            })
+            
+            //moving the thwumps using setInterval
+            
+            
+            //thwomp 1
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/thwomp.png',
+                name: 'thwomp1',
+                fillStyle: '#36c',
+                x: 300, y: 50,
+                width: 80, height: 80
+            });
+            $('canvas').animateLayer('thwomp1', {
+                x: 300, y: 380
+            }, 2000);
+            $('canvas').animateLayer('thwomp1', {
+                x: 300, y: 50
+            }, 4000);
+            
+            
+            setInterval (function() {
+                $('canvas').drawImage({
+                    layer: true,
+                    source: 'images/thwomp.png',
+                    name: 'thwomp1',
+                    fillStyle: '#36c',
+                    x: 300, y: 50,
+                    width: 80, height: 80
+                });
+                
+                
+                
+                
+                
+                
+                $('canvas').animateLayer('thwomp1', {
+                    x: 300, y: 380
+                }, {
+                    duration: 2000,
+                    easing: 'swing',
+                    step: function(now, fx, layer) {
+                        if (layer.x-80 <posX) {
+                            alert(layer.x.toString() + " " + posX.toString());
+                        }
+                    },
+                    complete: function(layer) {    
+                    }
+                });
+                $('canvas').animateLayer('thwomp1', {
+                    x: 300, y: 50
+                }, 4000);
+                    
+            }, 6000); 
+            
+            //thwomp2
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/thwomp.png',
+                name: 'thwomp2',
+                fillStyle: '#36c',
+                x: 500, y: 50,
+                width: 80, height: 80
+            });
+            $('canvas').animateLayer('thwomp2', {
+                x: 500, y: 380
+            }, 3000);
+            $('canvas').animateLayer('thwomp2', {
+                x: 500, y: 50
+            }, 2000);
+            
+            
+            setInterval (function() {
+                $('canvas').drawImage({
+                    layer: true,
+                    source: 'images/thwomp.png',
+                    name: 'thwomp2',
+                    fillStyle: '#36c',
+                    x: 500, y: 50,
+                    width: 80, height: 80
+                });
+                $('canvas').animateLayer('thwomp2', {
+                    x: 500, y: 380
+                }, 3000);
+                $('canvas').animateLayer('thwomp2', {
+                    x: 500, y: 50
+                }, 2000);
+                    
+            }, 5000); 
+            
+            //thwomp3
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/thwomp.png',
+                name: 'thwomp3',
+                fillStyle: '#36c',
+                x: 640, y: 50,
+                width: 80, height: 80
+            });
+            $('canvas').animateLayer('thwomp3', {
+                x: 640, y: 380
+            }, 2000);
+            $('canvas').animateLayer('thwomp3', {
+                x: 640, y: 50
+            }, 2000);
+            
+            
+            setInterval (function() {
+                $('canvas').drawImage({
+                    layer: true,
+                    source: 'images/thwomp.png',
+                    name: 'thwomp2',
+                    fillStyle: '#36c',
+                    x: 640, y: 50,
+                    width: 80, height: 80
+                });
+                $('canvas').animateLayer('thwomp3', {
+                    x: 640, y: 380
+                }, 2000);
+                $('canvas').animateLayer('thwomp3', {
+                    x: 640, y: 50
+                }, 2000);
+                    
+            }, 4000); 
+
+        
+        </script>
+    
+    
+    </body>
+
+
+
+
+
+</html>

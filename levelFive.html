@@ -22,7 +22,7 @@
                 background-color:cornsilk;
                 text-decoration: none;
                 border-radius: 50%;
-                font-size: 24px;
+                font-size: 12px;
             }
             
             #initial:hover {
@@ -31,16 +31,18 @@
             
             #divInitial {
                 position:absolute;
-                top: 200px;
+                top: 58px;
+                left: 88px;
             }
             
             #startingBox {
                 position:absolute;
-                width: 200px;
-                height: 100px;
+                width: 50px;
+                height: 50px;
                 background-color:white;
                 border: none;
-                top: 150px;
+                top: 40px;
+                left: 100px;
             }
             
             #finalBox {
@@ -56,8 +58,9 @@
             
             #divFinalBox {
                 position:absolute;
-                left: 90%;
-                top: 90%;
+                top: 80%;
+                left: 5%;
+                
             }
             
             #pathHorizontal {
@@ -72,8 +75,8 @@
             #pathVertical {
                 position:absolute;
                 background-color: white;
-                width: 15px;
-                height: 450px;
+                width: 50px;
+                height: 510px;
                 left: 95%;
             }
         
@@ -95,7 +98,7 @@
         
             <p id="startingBox" hidden>Start</p>
             
-            <a href="levelThree.html" id="divFinalBox" hidden>
+            <a href="levelSix.html" id="divFinalBox" hidden>
                 <button type="button" id="finalBox"> Click Me!</button>
         
             </a>
@@ -118,10 +121,33 @@
             $('#divInitial').fadeOut();
             $('h2').fadeIn();
             $('body').css('background-color', 'blue');
+            
             $('#startingBox').fadeIn();
+            setInterval(function(){
+            $('#startingBox').animate({left: '800px'},
+                14000).animate({left: '100px'}, 2000);
+            });
+            
+            
             $('#divFinalBox').fadeIn();
+            
             $('#pathHorizontal').fadeIn();
+            
+            setInterval(function(){
+            $('#pathHorizontal').animate({height: '20px', up: '800px'},
+                2000).animate({height: '10px'}, 2000);
+            }, 1000);
+            
+            
             $('#pathVertical').fadeIn();
+            setInterval(function(){
+            $('#pathVertical').animate({left: '800px', height: '100px', width: '30px'},
+                10000).animate({left: '100px', height: '510px', width: '60px'}, 10000);
+            });
+            
+            
+            
+            
             $('#overall').mouseleave(function() {
                 alert("You lost!");
                 window.location.replace('index.html');
