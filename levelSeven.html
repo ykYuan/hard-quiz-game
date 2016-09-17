@@ -1,0 +1,959 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        
+        <script src = "jquery-1.12.4.min.js"></script>
+        
+        <script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
+        
+        <script src ="jcanvas.min.js"></script>
+        
+        <h1>5. Complete the picture</h1>
+        
+ 
+        <style type="text/css">
+        
+        
+            h1{
+                position: absolute;
+                font-size: 25px;
+                font-family:fantasy
+            }
+            
+            canvas {
+                border-color: black;
+                border-style: double;
+            }
+            
+            #countdown {
+                position: absolute;
+                top: 580px;
+                left: 70px;
+                font-size: 80px;
+            }
+            
+            
+        </style>
+    
+    
+    </head>
+
+    <body>
+    
+        <canvas width="2000" height="600"></canvas>
+        
+        <button type="button" class="btn btn-info" onclick="reset()" > reset </button>
+        
+        <p id="countdown"></p>
+        
+        <script>
+            // drawing the grid
+            
+                $('canvas').drawLine({
+                    strokeStyle: '#000',
+                    strokeWidth: 2,
+                    layer: true,
+                    x1: 50, y1: 50,
+                    x2: 50, y2: 450
+                }).drawLine({
+                    strokeStyle: '#000',
+                    strokeWidth: 2,
+                    layer: true,
+                    x1: 50, y1: 50,
+                    x2: 450, y2: 50
+                }).drawLine({
+                    strokeStyle: '#000',
+                    strokeWidth: 2,
+                    layer: true,
+                    x1: 450, y1: 50,
+                    x2: 450, y2: 450
+                }).drawLine({
+                    strokeStyle: '#000',
+                    strokeWidth: 2,
+                    layer: true,
+                    x1: 50, y1: 450,
+                    x2: 450, y2: 450
+                }).drawLine({
+                    strokeStyle: '#000',
+                    strokeWidth: 2,
+                    layer: true,
+                    x1: 150, y1: 50,
+                    x2: 150, y2: 450
+                }).drawLine({
+                    strokeStyle: '#000',
+                    strokeWidth: 2,
+                    layer: true,
+                    x1: 250, y1: 50,
+                    x2: 250, y2: 450
+                }).drawLine({
+                    strokeStyle: '#000',
+                    strokeWidth: 2,
+                    layer: true,
+                    x1: 350, y1: 50,
+                    x2: 350, y2: 450
+                }).drawLine({
+                    strokeStyle: '#000',
+                    strokeWidth: 2,
+                    layer: true,
+                    x1: 50, y1: 150,
+                    x2: 450, y2: 150
+                }).drawLine({
+                    strokeStyle: '#000',
+                    strokeWidth: 2,
+                    layer: true,
+                    x1: 50, y1: 250,
+                    x2: 450, y2: 250
+                }).drawLine({
+                    strokeStyle: '#000',
+                    strokeWidth: 2,
+                    layer: true,
+                    x1: 50, y1: 350,
+                    x2: 450, y2: 350
+                });
+            
+            //array for storing current data
+            var input = [];
+            var answer = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
+            
+            //function to compare arrays
+            function compare(a, b) {
+                
+            };
+            
+            // posX and posY variables
+            var posX;
+            var posY;
+            
+            //function to get current mouse position
+            function mousePos () {
+                var e = window.event;
+                posX = e.clientX;
+                posY = e.clientY;
+            };
+            
+            //function that moves each picture automatically to slot, updates input,
+            // renders the current layer's dragabble to false and checks with correct answer
+            function movePic (number, layer) {
+                mousePos();
+                //first row
+                if (posX<150 && posX>50 && posY<150 && posY>50) {
+                    $('canvas').animateLayer(layer, {
+                        x:100, y:100
+                    });         
+                    //render current layer undraggable
+                    $('canvas').setLayer(layer, {
+                        draggable: false
+                    }).drawLayers();
+                
+                    //updates input and compares with answer
+                    input[0]=number;
+                    if (input.toString() == answer.toString()) {
+                        alert("You did it!!");
+                        window.location.replace('levelEight.html');
+                    };       
+                    //alert(posX.toString() + posY.toString());
+                }
+                else if (150<posX && posX<250 && 50<posY && posY<150) {
+                    $('canvas').animateLayer(layer, {
+                        x:200, y:100
+                    });
+                    //render current layer undraggable
+                    $('canvas').setLayer(layer, {
+                        draggable: false
+                    }).drawLayers();
+                
+                    //updates input and compares with answer
+                    input[1]=number;
+                    if (input.toString() == answer.toString()) {
+                        alert("You did it!!");
+                        window.location.replace('levelEight.html');
+                    };
+                }
+                else if (250<posX && posX <350 && 50<posY && posY<150) {
+                    $('canvas').animateLayer(layer, {
+                        x:300, y:100
+                    });
+                    //render current layer undraggable
+                    $('canvas').setLayer(layer, {
+                        draggable: false
+                    }).drawLayers();
+                
+                    //updates input and compares with answer
+                    input[2]=number;
+                    if (input.toString() == answer.toString()) {
+                        alert("You did it!!");
+                        window.location.replace('levelEight.html');
+                    };
+                }
+                else if (350<posX && posX<450 && 50<posY && posY<150) {
+                    $('canvas').animateLayer(layer, {
+                        x:400, y:100
+                    });
+                    //render current layer undraggable
+                    $('canvas').setLayer(layer, {
+                        draggable: false
+                    }).drawLayers();
+                
+                    //updates input and compares with answer
+                    input[3]=number;
+                    if (input.toString() == answer.toString()) {
+                        alert("You did it!!");
+                        window.location.replace('levelEight.html');
+                    };
+                }
+                //second row
+                else if (50<posX && posX<150 && 150<posY && posY<250) {
+                    $('canvas').animateLayer(layer, {
+                        x:100, y:200
+                    });
+                    //render current layer undraggable
+                    $('canvas').setLayer(layer, {
+                        draggable: false
+                    }).drawLayers();
+                
+                    //updates input and compares with answer
+                    input[4]=number;
+                    if (input.toString() == answer.toString()) {
+                        alert("You did it!!");
+                        window.location.replace('levelEight.html');
+                    };
+                }
+                else if (150<posX && posX<250 && 150<posY && posY<250) {
+                    $('canvas').animateLayer(layer, {
+                        x:200, y:200
+                    });
+                    //render current layer undraggable
+                    $('canvas').setLayer(layer, {
+                        draggable: false
+                    }).drawLayers();
+                
+                    //updates input and compares with answer
+                    input[5]=number;
+                    if (input.toString() == answer.toString()) {
+                        alert("You did it!!");
+                        window.location.replace('levelEight.html');
+                    };
+                }
+                else if (250<posX && posX<350 && 150<posY && posY<250) {
+                    $('canvas').animateLayer(layer, {
+                        x:300, y:200
+                    });
+                    //render current layer undraggable
+                    $('canvas').setLayer(layer, {
+                        draggable: false
+                    }).drawLayers();
+                
+                    //updates input and compares with answer
+                    input[6]=number;
+                    if (input.toString() == answer.toString()) {
+                        alert("You did it!!");
+                        window.location.replace('levelEight.html');
+                    };
+                }
+                else if (350<posX && posX<450 && 150<posY && posY<250) {
+                    $('canvas').animateLayer(layer, {
+                        x:400, y:200
+                    });
+                    //render current layer undraggable
+                    $('canvas').setLayer(layer, {
+                        draggable: false
+                    }).drawLayers();
+                
+                    //updates input and compares with answer
+                    input[7]=number;
+                    if (input.toString() == answer.toString()) {
+                        alert("You did it!!");
+                        window.location.replace('levelEight.html');
+                    };
+                }
+                //third row
+                else if (50<posX && posX<150 && 250<posY && posY<350) {
+                    $('canvas').animateLayer(layer, {
+                        x:100, y:300
+                    });
+                    //render current layer undraggable
+                    $('canvas').setLayer(layer, {
+                        draggable: false
+                    }).drawLayers();
+                
+                    //updates input and compares with answer
+                    input[8]=number;
+                    if (input.toString() == answer.toString()) {
+                        alert("You did it!!");
+                        window.location.replace('levelEight.html');
+                    };
+                }
+                else if (150<posX && posX<250 && 250<posY && posY<350) {
+                    $('canvas').animateLayer(layer, {
+                        x:200, y:300
+                    });
+                    //render current layer undraggable
+                    $('canvas').setLayer(layer, {
+                        draggable: false
+                    }).drawLayers();
+                
+                    //updates input and compares with answer
+                    input[9]=number;
+                    if (input.toString() == answer.toString()) {
+                        alert("You did it!!");
+                        window.location.replace('levelEight.html');
+                    };
+                }
+                else if (250<posX && posX<350 && 250<posY && posY<350) {
+                    $('canvas').animateLayer(layer, {
+                        x:300, y:300
+                    });
+                    //render current layer undraggable
+                    $('canvas').setLayer(layer, {
+                        draggable: false
+                    }).drawLayers();
+                
+                    //updates input and compares with answer
+                    input[10]=number;
+                    if (input.toString() == answer.toString()) {
+                        alert("You did it!!");
+                        window.location.replace('levelEight.html');
+                    };
+                }
+                else if (350<posX && posX<450 && 250<posY && posY<350) {
+                    $('canvas').animateLayer(layer, {
+                        x:400, y:300
+                    });
+                    //render current layer undraggable
+                    $('canvas').setLayer(layer, {
+                        draggable: false
+                    }).drawLayers();
+                
+                    //updates input and compares with answer
+                    input[11]=number;
+                    if (input.toString() == answer.toString()) {
+                        alert("You did it!!");
+                        window.location.replace('levelEight.html');
+                    };
+                }
+                //fourth row
+                else if (50<posX && posX<150 && 350<posY && posY<450) {
+                    $('canvas').animateLayer(layer, {
+                        x:100, y:400
+                    });
+                    //render current layer undraggable
+                    $('canvas').setLayer(layer, {
+                        draggable: false
+                    }).drawLayers();
+                
+                    //updates input and compares with answer
+                    input[12]=number;
+                    if (input.toString() == answer.toString()) {
+                        alert("You did it!!");
+                        window.location.replace('levelEight.html');
+                    };
+                }
+                else if (150<posX && posX<250 && 350<posY && posY<450) {
+                    $('canvas').animateLayer(layer, {
+                        x:200, y:400
+                    });
+                    //render current layer undraggable
+                    $('canvas').setLayer(layer, {
+                        draggable: false
+                    }).drawLayers();
+                
+                    //updates input and compares with answer
+                    input[13]=number;
+                    if (input.toString() == answer.toString()) {
+                        alert("You did it!!");
+                        window.location.replace('levelEight.html');
+                    };
+                }
+                else if (250<posX && posX<350 && 350<posY && posY<450) {
+                    $('canvas').animateLayer(layer, {
+                        x:300, y:400
+                    });
+                    //render current layer undraggable
+                    $('canvas').setLayer(layer, {
+                        draggable: false
+                    }).drawLayers();
+                
+                    //updates input and compares with answer
+                    input[14]=number;
+                    if (input.toString() == answer.toString()) {
+                        alert("You did it!!");
+                        window.location.replace('levelEight.html');
+                    };
+                }
+                else if (350<posX && posX<450 && 350<posY && posY<450) {
+                    $('canvas').animateLayer(layer, {
+                        x:400, y:400
+                    });
+                    //render current layer undraggable
+                    $('canvas').setLayer(layer, {
+                        draggable: false
+                    }).drawLayers();
+                
+                    //updates input and compares with answer
+                    input[15]=number;
+                    if (input.toString() == answer.toString()) {
+                        alert("You did it!!");
+                        window.location.replace('levelEight.html');
+                    };
+                }
+                     
+            };
+            
+            //reset function
+            function reset () {
+                input = [];
+                $('canvas').removeLayers();
+                
+                
+                
+                $('canvas').drawLine({
+                    strokeStyle: '#000',
+                    strokeWidth: 2,
+                    layer: true,
+                    x1: 50, y1: 50,
+                    x2: 50, y2: 450
+                }).drawLine({
+                    strokeStyle: '#000',
+                    strokeWidth: 2,
+                    layer: true,
+                    x1: 50, y1: 50,
+                    x2: 450, y2: 50
+                }).drawLine({
+                    strokeStyle: '#000',
+                    strokeWidth: 2,
+                    layer: true,
+                    x1: 450, y1: 50,
+                    x2: 450, y2: 450
+                }).drawLine({
+                    strokeStyle: '#000',
+                    strokeWidth: 2,
+                    layer: true,
+                    x1: 50, y1: 450,
+                    x2: 450, y2: 450
+                }).drawLine({
+                    strokeStyle: '#000',
+                    strokeWidth: 2,
+                    layer: true,
+                    x1: 150, y1: 50,
+                    x2: 150, y2: 450
+                }).drawLine({
+                    strokeStyle: '#000',
+                    strokeWidth: 2,
+                    layer: true,
+                    x1: 250, y1: 50,
+                    x2: 250, y2: 450
+                }).drawLine({
+                    strokeStyle: '#000',
+                    strokeWidth: 2,
+                    layer: true,
+                    x1: 350, y1: 50,
+                    x2: 350, y2: 450
+                }).drawLine({
+                    strokeStyle: '#000',
+                    strokeWidth: 2,
+                    layer: true,
+                    x1: 50, y1: 150,
+                    x2: 450, y2: 150
+                }).drawLine({
+                    strokeStyle: '#000',
+                    strokeWidth: 2,
+                    layer: true,
+                    x1: 50, y1: 250,
+                    x2: 450, y2: 250
+                }).drawLine({
+                    strokeStyle: '#000',
+                    strokeWidth: 2,
+                    layer: true,
+                    x1: 50, y1: 350,
+                    x2: 450, y2: 350
+                });
+                
+                
+                //piece1
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/piece1.jpeg',
+                name: 'piece1',
+                draggable: true,
+                fillStyle: '#36c',
+                x: 800, y: 400,
+                width:100, height:100,
+                mouseup: function(layer) {
+                    movePic(1, 'piece1');
+                }
+            });
+            
+            //piece2
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/piece2.jpeg',
+                name: 'piece2',
+                draggable: true,
+                fillStyle: '#36c',
+                x: 1000, y: 100,
+                width:100, height:100,
+                mouseup: function(layer) {
+                    movePic(2, 'piece2');
+                }
+            });
+            
+            //piece 3
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/piece3.jpeg',
+                name: 'piece3',
+                draggable: true,
+                fillStyle: '#36c',
+                x: 100, y: 600,
+                width:100, height:100,
+                mouseup: function(layer) {
+                    movePic(3, 'piece3');
+                }
+            });
+            
+            //piece4
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/piece4.jpeg',
+                name: 'piece4',
+                draggable: true,
+                fillStyle: '#36c',
+                x: 700, y: 50,
+                width:100, height:100,
+                mouseup: function(layer) {
+                    movePic(4, 'piece4');
+                }
+            });
+            
+            //piece5
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/piece5.jpeg',
+                name: 'piece5',
+                draggable: true,
+                fillStyle: '#36c',
+                x: 700, y: 400,
+                width:100, height:100,
+                mouseup: function(layer) {
+                    movePic(5, 'piece5');
+                }
+            });
+            
+            //piece6
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/piece6.jpeg',
+                name: 'piece6',
+                draggable: true,
+                fillStyle: '#36c',
+                x: 800, y: 270,
+                width:100, height:100,
+                mouseup: function(layer) {
+                    movePic(6, 'piece6');
+                }
+            });
+            
+            //piece7
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/piece7.jpeg',
+                name: 'piece7',
+                draggable: true,
+                fillStyle: '#36c',
+                x: 820, y: 140,
+                width:100, height:100,
+                mouseup: function(layer) {
+                    movePic(7, 'piece7');
+                }
+            });
+            
+            //piece8
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/piece8.jpeg',
+                name: 'piece8',
+                draggable: true,
+                fillStyle: '#36c',
+                x: 980, y: 400,
+                width:100, height:100,
+                mouseup: function(layer) {
+                    movePic(8, 'piece8');
+                }
+            });
+            
+            //piece9
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/piece9.jpeg',
+                name: 'piece9',
+                draggable: true,
+                fillStyle: '#36c',
+                x: 50, y: 500,
+                width:100, height:100,
+                mouseup: function(layer) {
+                    movePic(9, 'piece9');
+                }
+            });
+            
+            //piece10
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/piece10.jpeg',
+                name: 'piece10',
+                draggable: true,
+                fillStyle: '#36c',
+                x: 300, y: 540,
+                width:100, height:100,
+                mouseup: function(layer) {
+                    movePic(10, 'piece10');
+                }
+            });
+            
+            //piece11
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/piece11.jpeg',
+                name: 'piece11',
+                draggable: true,
+                fillStyle: '#36c',
+                x: 480, y: 595,
+                width:100, height:100,
+                mouseup: function(layer) {
+                    movePic(11, 'piece11');
+                }
+            });
+            
+            //piece12
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/piece12.jpeg',
+                name: 'piece12',
+                draggable: true,
+                fillStyle: '#36c',
+                x: 600, y: 480,
+                width:100, height:100,
+                mouseup: function(layer) {
+                    movePic(12, 'piece12');
+                }
+            });
+            
+            //piece13
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/piece13.jpeg',
+                name: 'piece13',
+                draggable: true,
+                fillStyle: '#36c',
+                x: 645, y: 300,
+                width:100, height:100,
+                mouseup: function(layer) {
+                    movePic(13, 'piece13');
+                }
+            });
+        
+            //piece14
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/piece14.jpeg',
+                name: 'piece14',
+                draggable: true,
+                fillStyle: '#36c',
+                x: 800, y: 580,
+                width:100, height:100,
+                mouseup: function(layer) {
+                    movePic(14, 'piece14');
+                }
+            });
+            
+            //piece15
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/piece15.jpeg',
+                name: 'piece15',
+                draggable: true,
+                fillStyle: '#36c',
+                x: 1000, y: 280,
+                width:100, height:100,
+                mouseup: function(layer) {
+                    movePic(15, 'piece15');
+                }
+            });
+            
+            //piece16
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/piece16.jpeg',
+                name: 'piece16',
+                draggable: true,
+                fillStyle: '#36c',
+                x: 1000, y: 500,
+                width:100, height:100,
+                mouseup: function(layer) {
+                    movePic(16, 'piece16');
+                }
+            });
+                
+                
+                
+                
+                
+                
+                
+
+            };
+            
+            //the following functions draws the 16 pieces around the page
+            
+            //piece1
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/piece1.jpeg',
+                name: 'piece1',
+                draggable: true,
+                fillStyle: '#36c',
+                x: 800, y: 400,
+                width:100, height:100,
+                mouseup: function(layer) {
+                    movePic(1, 'piece1');
+                }
+            });
+            
+            //piece2
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/piece2.jpeg',
+                name: 'piece2',
+                draggable: true,
+                fillStyle: '#36c',
+                x: 1000, y: 100,
+                width:100, height:100,
+                mouseup: function(layer) {
+                    movePic(2, 'piece2');
+                }
+            });
+            
+            //piece 3
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/piece3.jpeg',
+                name: 'piece3',
+                draggable: true,
+                fillStyle: '#36c',
+                x: 100, y: 600,
+                width:100, height:100,
+                mouseup: function(layer) {
+                    movePic(3, 'piece3');
+                }
+            });
+            
+            //piece4
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/piece4.jpeg',
+                name: 'piece4',
+                draggable: true,
+                fillStyle: '#36c',
+                x: 700, y: 50,
+                width:100, height:100,
+                mouseup: function(layer) {
+                    movePic(4, 'piece4');
+                }
+            });
+            
+            //piece5
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/piece5.jpeg',
+                name: 'piece5',
+                draggable: true,
+                fillStyle: '#36c',
+                x: 700, y: 400,
+                width:100, height:100,
+                mouseup: function(layer) {
+                    movePic(5, 'piece5');
+                }
+            });
+            
+            //piece6
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/piece6.jpeg',
+                name: 'piece6',
+                draggable: true,
+                fillStyle: '#36c',
+                x: 800, y: 270,
+                width:100, height:100,
+                mouseup: function(layer) {
+                    movePic(6, 'piece6');
+                }
+            });
+            
+            //piece7
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/piece7.jpeg',
+                name: 'piece7',
+                draggable: true,
+                fillStyle: '#36c',
+                x: 820, y: 140,
+                width:100, height:100,
+                mouseup: function(layer) {
+                    movePic(7, 'piece7');
+                }
+            });
+            
+            //piece8
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/piece8.jpeg',
+                name: 'piece8',
+                draggable: true,
+                fillStyle: '#36c',
+                x: 980, y: 400,
+                width:100, height:100,
+                mouseup: function(layer) {
+                    movePic(8, 'piece8');
+                }
+            });
+            
+            //piece9
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/piece9.jpeg',
+                name: 'piece9',
+                draggable: true,
+                fillStyle: '#36c',
+                x: 50, y: 500,
+                width:100, height:100,
+                mouseup: function(layer) {
+                    movePic(9, 'piece9');
+                }
+            });
+            
+            //piece10
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/piece10.jpeg',
+                name: 'piece10',
+                draggable: true,
+                fillStyle: '#36c',
+                x: 300, y: 540,
+                width:100, height:100,
+                mouseup: function(layer) {
+                    movePic(10, 'piece10');
+                }
+            });
+            
+            //piece11
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/piece11.jpeg',
+                name: 'piece11',
+                draggable: true,
+                fillStyle: '#36c',
+                x: 480, y: 595,
+                width:100, height:100,
+                mouseup: function(layer) {
+                    movePic(11, 'piece11');
+                }
+            });
+            
+            //piece12
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/piece12.jpeg',
+                name: 'piece12',
+                draggable: true,
+                fillStyle: '#36c',
+                x: 600, y: 480,
+                width:100, height:100,
+                mouseup: function(layer) {
+                    movePic(12, 'piece12');
+                }
+            });
+            
+            //piece13
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/piece13.jpeg',
+                name: 'piece13',
+                draggable: true,
+                fillStyle: '#36c',
+                x: 645, y: 300,
+                width:100, height:100,
+                mouseup: function(layer) {
+                    movePic(13, 'piece13');
+                }
+            });
+        
+            //piece14
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/piece14.jpeg',
+                name: 'piece14',
+                draggable: true,
+                fillStyle: '#36c',
+                x: 800, y: 580,
+                width:100, height:100,
+                mouseup: function(layer) {
+                    movePic(14, 'piece14');
+                }
+            });
+            
+            //piece15
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/piece15.jpeg',
+                name: 'piece15',
+                draggable: true,
+                fillStyle: '#36c',
+                x: 1000, y: 280,
+                width:100, height:100,
+                mouseup: function(layer) {
+                    movePic(15, 'piece15');
+                }
+            });
+            
+            //piece16
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/piece16.jpeg',
+                name: 'piece16',
+                draggable: true,
+                fillStyle: '#36c',
+                x: 1000, y: 500,
+                width:100, height:100,
+                mouseup: function(layer) {
+                    movePic(16, 'piece16');
+                }
+            });
+            
+            //timer code
+            var countdown = 80;
+            setInterval(function(){
+                if (countdown > -1) {
+                $('#countdown').text(countdown.toString());
+                countdown = countdown - 1;
+                }
+                else {
+                    alert("you lost");
+                    window.location.replace('index.html');
+                };
+            },1000);
+        
+        </script>
+        
+        
+        
+    </body>
+
+
+
+
+
+</html>

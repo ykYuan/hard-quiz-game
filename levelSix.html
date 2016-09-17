@@ -62,14 +62,26 @@
             $(document).keydown(function(e) {
                 switch (e.which) {
                     case 37:
-                        posX=posX-10;
+                        posX=posX-20;
+                        if (posX<0) {
+                            posX=0;
+                        };
+                        if (posX>800) {
+                            posX=800;
+                        };
                         $('canvas').animateLayer('snorlax', {
                             x: posX
                         });
                         break;
                     
                     case 38:
-                        posY=posY-10;
+                        posY=posY-20;
+                        if (posY<0) {
+                            posY=0;
+                        };
+                        if (posY>300) {
+                            posY=300;
+                        };
                         $('canvas').animateLayer('snorlax', {
                             y: posY
                         });
@@ -77,14 +89,14 @@
                         
                         
                     case 39:
-                        posX=posX+10;
+                        posX=posX+20;
                         $('canvas').animateLayer('snorlax', {
                             x: posX
                         });
                         break;
                     
                     case 40:
-                        posY=posY+10;
+                        posY=posY+20;
                         $('canvas').animateLayer('snorlax', {
                             y: posY
                         });
@@ -108,10 +120,32 @@
             });
             $('canvas').animateLayer('thwomp1', {
                 x: 300, y: 380
-            }, 2000);
+            }, {
+                    duration: 2000,
+                    easing: 'swing',
+                    step: function(now, fx, layer) {
+                        if (posX<layer.x+80&& posX+ 75>layer.x&&posY<layer.y+70&&posY+60>layer.y) {
+                            alert("You lost!");
+                            window.location.replace('index.html');
+                        }
+                    },
+                    complete: function(layer) {    
+                    }
+                });
             $('canvas').animateLayer('thwomp1', {
                 x: 300, y: 50
-            }, 4000);
+            }, {
+                    duration: 4000,
+                    easing: 'swing',
+                    step: function(now, fx, layer) {
+                        if (posX<layer.x+80&& posX+ 75>layer.x&&posY<layer.y+70&&posY+60>layer.y) {
+                            alert("You lost!");
+                            window.location.replace('index.html');
+                        }
+                    },
+                    complete: function(layer) {    
+                    }
+                });
             
             
             setInterval (function() {
@@ -124,19 +158,15 @@
                     width: 80, height: 80
                 });
                 
-                
-                
-                
-                
-                
                 $('canvas').animateLayer('thwomp1', {
                     x: 300, y: 380
                 }, {
                     duration: 2000,
                     easing: 'swing',
                     step: function(now, fx, layer) {
-                        if (layer.x-80 <posX) {
-                            alert(layer.x.toString() + " " + posX.toString());
+                        if (posX<layer.x+80&& posX+ 75>layer.x&&posY<layer.y+70&&posY+60>layer.y) {
+                            alert("You lost!");
+                            window.location.replace('index.html');
                         }
                     },
                     complete: function(layer) {    
@@ -144,7 +174,18 @@
                 });
                 $('canvas').animateLayer('thwomp1', {
                     x: 300, y: 50
-                }, 4000);
+                }, {
+                    duration: 4000,
+                    easing: 'swing',
+                    step: function(now, fx, layer) {
+                        if (posX<layer.x+80&& posX+ 75>layer.x&&posY<layer.y+70&&posY+60>layer.y) {
+                            alert("You lost!");
+                            window.location.replace('index.html');
+                        }
+                    },
+                    complete: function(layer) {    
+                    }
+                });
                     
             }, 6000); 
             
@@ -159,10 +200,32 @@
             });
             $('canvas').animateLayer('thwomp2', {
                 x: 500, y: 380
-            }, 3000);
+            }, {
+                    duration: 3000,
+                    easing: 'swing',
+                    step: function(now, fx, layer) {
+                        if (posX<layer.x+80&& posX+ 75>layer.x&&posY<layer.y+70&&posY+60>layer.y) {
+                            alert("You lost!");
+                            window.location.replace('index.html');
+                        }
+                    },
+                    complete: function(layer) {    
+                    }
+                });
             $('canvas').animateLayer('thwomp2', {
                 x: 500, y: 50
-            }, 2000);
+            }, {
+                    duration: 2000,
+                    easing: 'swing',
+                    step: function(now, fx, layer) {
+                        if (posX<layer.x+80&& posX+ 75>layer.x&&posY<layer.y+70&&posY+60>layer.y) {
+                            alert("You lost!");
+                            window.location.replace('index.html');
+                        }
+                    },
+                    complete: function(layer) {    
+                    }
+                });
             
             
             setInterval (function() {
@@ -176,10 +239,32 @@
                 });
                 $('canvas').animateLayer('thwomp2', {
                     x: 500, y: 380
-                }, 3000);
+                }, {
+                    duration: 3000,
+                    easing: 'swing',
+                    step: function(now, fx, layer) {
+                        if (posX<layer.x+80&& posX+ 75>layer.x&&posY<layer.y+70&&posY+60>layer.y) {
+                            alert("You lost!");
+                            window.location.replace('index.html');
+                        }
+                    },
+                    complete: function(layer) {    
+                    }
+                });
                 $('canvas').animateLayer('thwomp2', {
                     x: 500, y: 50
-                }, 2000);
+                }, {
+                    duration: 2000,
+                    easing: 'swing',
+                    step: function(now, fx, layer) {
+                        if (posX<layer.x+80&& posX+ 75>layer.x&&posY<layer.y+70&&posY+60>layer.y) {
+                            alert("You lost!");
+                            window.location.replace('index.html');
+                        }
+                    },
+                    complete: function(layer) {    
+                    }
+                });
                     
             }, 5000); 
             
@@ -194,10 +279,32 @@
             });
             $('canvas').animateLayer('thwomp3', {
                 x: 640, y: 380
-            }, 2000);
+            }, {
+                    duration: 2000,
+                    easing: 'swing',
+                    step: function(now, fx, layer) {
+                        if (posX<layer.x+80&& posX+ 75>layer.x&&posY<layer.y+70&&posY+60>layer.y) {
+                            alert("You lost!");
+                            window.location.replace('index.html');
+                        }
+                    },
+                    complete: function(layer) {    
+                    }
+                });
             $('canvas').animateLayer('thwomp3', {
                 x: 640, y: 50
-            }, 2000);
+            }, {
+                    duration: 2000,
+                    easing: 'swing',
+                    step: function(now, fx, layer) {
+                        if (posX<layer.x+80&& posX+ 75>layer.x&&posY<layer.y+70&&posY+60>layer.y) {
+                            alert("You lost!");
+                            window.location.replace('index.html');
+                        }
+                    },
+                    complete: function(layer) {    
+                    }
+                });
             
             
             setInterval (function() {
@@ -211,13 +318,104 @@
                 });
                 $('canvas').animateLayer('thwomp3', {
                     x: 640, y: 380
-                }, 2000);
+                }, {
+                    duration: 2000,
+                    easing: 'swing',
+                    step: function(now, fx, layer) {
+                        if (posX<layer.x+80&& posX+ 75>layer.x&&posY<layer.y+70&&posY+60>layer.y) {
+                            alert("You lost!");
+                            window.location.replace('index.html');
+                        }
+                    },
+                    complete: function(layer) {    
+                    }
+                });
                 $('canvas').animateLayer('thwomp3', {
                     x: 640, y: 50
-                }, 2000);
+                }, {
+                    duration: 2000,
+                    easing: 'swing',
+                    step: function(now, fx, layer) {
+                        if (posX<layer.x+80&& posX+ 75>layer.x&&posY<layer.y+70&&posY+60>layer.y) {
+                            alert("You lost!");
+                            window.location.replace('index.html');
+                        }
+                    },
+                    complete: function(layer) {    
+                    }
+                });
                     
             }, 4000); 
 
+            //final fruit
+            $('canvas').drawImage({
+                layer: true,
+                source: 'images/berry.png',
+                name: 'berry',
+                fillStyle: '#36c',
+                x: 750, y: 50,
+                width: 80, height: 80
+            });
+            
+            $('canvas').animateLayer('berry', {
+                x: 750, y: 100
+            }, {
+                    duration: 2000,
+                    easing: 'swing',
+                    step: function(now, fx, layer) {
+                        if (posX<layer.x+80&& posX+ 75>layer.x&&posY<layer.y+70&&posY+60>layer.y) {
+                            window.location.replace('levelSeven.html');
+                        }
+                    },
+                    complete: function(layer) {    
+                    }
+                });
+            $('canvas').animateLayer('berry', {
+                x: 750, y: 50
+            }, {
+                    duration: 2000,
+                    easing: 'swing',
+                    step: function(now, fx, layer) {
+                        if (posX<layer.x+80&& posX+ 75>layer.x&&posY<layer.y+70&&posY+60>layer.y) {
+                            window.location.replace('levelSeven.html');
+                        }
+                    },
+                    complete: function(layer) {    
+                    }
+                });
+            
+            
+            setInterval (function() {
+                $('canvas').animateLayer('berry', {
+                    x: 750, y: 100
+                }, {
+                    duration: 2000,
+                    easing: 'swing',
+                    step: function(now, fx, layer) {
+                        if (posX<layer.x+80&& posX+ 75>layer.x&&posY<layer.y+70&&posY+60>layer.y) {
+                            window.location.replace('levelSeven.html');
+                        }
+                    },
+                    complete: function(layer) {    
+                    }
+                });
+                $('canvas').animateLayer('berry', {
+                    x: 750, y: 50
+                }, {
+                    duration: 2000,
+                    easing: 'swing',
+                    step: function(now, fx, layer) {
+                        if (posX<layer.x+80&& posX+ 75>layer.x&&posY<layer.y+70&&posY+60>layer.y) {
+                            window.location.replace('levelSeven.html');
+                        }
+                    },
+                    complete: function(layer) {    
+                    }
+                });
+                    
+            }, 4000); 
+            //posX>750&&posX<850&&posY>50&&posY<162
+            
         
         </script>
     

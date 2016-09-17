@@ -22,30 +22,27 @@
 
     <body>
     
-        <div class="container-fluid">
-            <p>Hi</p>
-            <pre>
-            for (int i = 0)
-        
-            </pre>
-            <p class="text-success">hi</p>
-        
-        
-        
-        </div>
-        
-        <div style="background:#98bf21;height:100px;width:100px;position:absolute;"></div>
     
-        <button>Start Animation</button>
+        <button onclick="searchApi">Start Animation</button>
         
         <script>
             
-        $("button").click(function(){
-        $("div").animate({left: '250px'},2000);
-        });
- 
-        
-        
+            var api = "http://api.giphy.com/v1/gifs/search?";
+            var apiKey = "&api_key=dc6zaTOxFJmzC";
+            var query = "q=";   
+            
+            function searchApi() {
+                return fetch(api + query + "yuan" + apiKey)
+                    .then((response) => response.json())
+                    .then((responseJson) => {
+                    return responseJson.data[0].images.fixed_height.url;
+                })
+                    .catch((error) => {
+                    console.error(error);
+                });
+
+              
+            
         </script>
    
     

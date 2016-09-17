@@ -1,0 +1,266 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        
+        <script src = "jquery-1.12.4.min.js"></script>
+        
+        <script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
+        
+    
+        <h2> 9. </h2>
+    
+        
+        
+        <style type = "text/css">
+            
+            
+            h2 {
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                font-style:oblique;
+                font-family:sans-serif;
+                color:blueviolet;
+            }
+            
+            #question {
+                position:absolute;
+                top: 100px;
+                left: 200px;
+                color:darkblue;
+                font-size: 40px;
+                font-style:italic;
+                font-family:fantasy;
+            }
+            
+            #countdown {
+                position: absolute;
+                top: 400px;
+                left: 70px;
+                font-size: 20px;
+            }
+            
+            
+            #choiceOne {
+                position:absolute;
+                background-color:white;
+                align-content: center;
+                border: 2px solid darkblue;
+                width:330px;
+                padding: 30px;
+                top:180px;
+                left:100px;
+            }
+
+            
+            #choiceTwo {
+                position:absolute;
+                align-content: center;
+                border: 2px solid darkblue;
+                width: 330px;
+                padding: 30px;
+                top:180px;
+                left:500px;
+            }
+ 
+            
+            #choiceThree {
+                position:absolute;
+                align-content: center;
+                border: 2px solid darkblue;
+                width:330px;
+                padding: 30px;
+                top:300px;
+                left:100px;
+            }
+            
+            
+            #choiceFour {
+                position:absolute;
+                align-items: center;
+                border: 2px solid darkblue;
+                width:330px;
+                padding: 27px;
+                top:300px;
+                left:500px;
+            }
+            
+            #choiceFive {
+                position:absolute;
+                align-items: center;
+                border: 2px solid darkblue;
+                width:330px;
+                padding: 27px;
+                top: 420px;
+                left:100px;
+            }
+            
+            #choiceSix {
+                position:absolute;
+                align-items: center;
+                border: 2px solid darkblue;
+                width:330px;
+                padding: 27px;
+                top: 420px;
+                left:500px;
+            }
+            
+            #choiceSeven {
+                position:absolute;
+                align-items: center;
+                border: 2px solid darkblue;
+                width:330px;
+                padding: 27px;
+                top: 520px;
+                left:100px;
+            }
+            
+            #choiceEight {
+                position:absolute;
+                align-items: center;
+                border: 2px solid darkblue;
+                width:330px;
+                padding: 27px;
+                top: 520px;
+                left:500px;
+            }
+            
+             #choiceNine {
+                position:absolute;
+                align-items: center;
+                border: 2px solid darkblue;
+                width:330px;
+                padding: 27px;
+                top: 620px;
+                left:100px;
+            }
+            
+            #choiceTen {
+                position:absolute;
+                align-items: center;
+                border: 2px solid darkblue;
+                width:330px;
+                padding: 27px;
+                top: 620px;
+                left:500px;
+            }
+            
+            
+            
+            
+        </style>
+        
+   
+    
+    </head>
+    
+    
+    
+    <body>
+        
+        <div class="container-fluid" id="question">
+            <p> Face your biggest fear......</p>
+        </div>
+     
+        
+        
+        
+    
+        <div class="container-fluid" id="choiceOne" >
+                <p> Eaten alive by a 10 feet anaconda </p>
+        </div>
+        
+        
+        <div class="container" id="choiceTwo">
+                <p> Convicted of murder </p>
+        </div>
+        
+        
+        <div class="container" id="choiceThree">
+                <p> Expelled from college </p>    
+        </div>
+        
+        
+        <div class="container" id="choiceFour">
+                <p> Matthew's unquenchable bloodthirst </p>
+        </div>
+        
+        <div class="container" id="choiceFive">
+                <p> CIS 160 </p>
+        </div>
+        
+        <div class="container" id="choiceSix">
+                <p> Never have sex with anyone in your life </p>
+        </div>
+        
+        <div class="container" id="choiceSeven">
+                <p> A teddy bear </p>
+        </div>
+        
+        <div class="container" id="choiceEight">
+                <p> Your mom </p>
+        </div>
+        
+        <div class="container" id="choiceNine">
+                <p> Death </p>
+        </div>
+        
+        <div class="container" id="choiceTen">
+                <p> Slowly eaten by swarms and swarms flesh-eating insects </p>
+        </div>
+        
+        
+        
+        
+        <p id="countdown"></p>
+       
+        <script>
+            
+            
+            $('#choiceOne, #choiceTwo, #choiceThree, #choiceFive, #choiceSix, #choiceSeven, #choiceEight, #choiceNine, #choiceTen').mouseover(function() {
+                $(this).css('background-color', 'azure').css('font-weight', 'bold');
+            }).mouseleave(function() {
+                $(this).css('background-color', 'white').css('font-weight', 'normal');
+            }).click(function() {
+                alert("You lost!");
+                window.location.replace('index.html');
+            });
+            
+            $('#choiceFour').mouseover(function() {
+                $(this).css('background-color', 'azure').css('font-weight', 'bold');
+            }).mouseleave(function() {
+                $(this).css('background-color', 'white').css('font-weight', 'normal');
+            }).click(function() {
+                alert("Correct!");
+                window.location.replace('levelTen.html');
+            });
+            
+            
+            
+            //timer code
+            var countdown = 30;
+            setInterval(function(){
+                if (countdown > -1) {
+                $('#countdown').text(countdown.toString());
+                countdown = countdown - 1;
+                }
+                else {
+                    alert("you lost");
+                    window.location.replace('index.html');
+                };
+            },1000);
+
+        
+        </script>
+    
+    </body>
+
+
+
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        
+        <script src = "jquery-1.12.4.min.js"></script>
+        
+        <script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
+        
+    
+        <h2> 10. </h2>
+    
+        
+        
+        <style type = "text/css">
+            
+            
+            body {
+                background-color: white;
+            }
+          
+            #Jack {
+                position: absolute;
+                Left: 20px;
+            }
+            
+            #JackButton {
+                border: none;
+                color: white;
+            }
+            
+            #JackWords {
+                position: absolute;
+                left: 20px;
+                top: 100px;
+            }
+            
+            #Garett {
+                position: absolute;
+                left: 600px;
+                top: 500px;
+            }
+            
+            #GarettButton {
+                border: none;
+                color: white;
+            }
+            
+            #GarettWords {
+                position: absolute;
+                left: 600px;
+                top: 534px;
+            }
+            
+            #John {
+                position: absolute;
+                left: 1000px;
+                
+            }
+            
+            #JohnButton {
+                border: none;
+                color: white;
+            }
+            
+            #JohnWords {
+                position: absolute;
+                left: 950px;
+                top: 100px;
+            }
+            
+            #Yuan {
+                position: absolute;
+                left: 500px;
+                top: 412px;
+            }
+            
+            #YuanButton {
+                border: none;
+                color: white;
+            }
+            
+            #YuanWords {
+                position: absolute;
+                left: 580px;
+                top: 400px;
+            }
+            
+            #Glen {
+                position: absolute;
+                top: 600px;
+            }
+            
+            #GlenButton {
+                border: none;
+                color: white;
+            }
+            
+            #GlenWords {
+                position: absolute;
+                top: 580px;
+            }
+            
+            #ChangeColor {
+                position: absolute;
+                left: 50%;
+            }
+            
+            #clue {
+                position: absolute;
+                left: 50%;
+                top: 5%;
+            }
+            
+            #answer {
+                position: absolute;
+                top: 50%;
+                color: white;
+            }
+            
+            #countdown {
+                position: absolute;
+                top: 40px;
+                left: 90%;
+                font-size: 40px;
+                font-family: fantasy;
+                color:blueviolet;
+                font-style:oblique;
+            }
+            
+            
+        </style>
+        
+   
+    
+    </head>
+    
+    
+    
+    <body>
+        
+        <div id="Jack">
+            <button id="JackButton" type="button" onclick="Jack()" class="btn btn-default">Jack</button>
+        </div>
+        
+        <div id="Garett" hidden>
+            <button id="GarettButton" type="button" onclick="Garett()" class="btn btn-default">Garett</button>
+        </div>
+        
+        <div id="John" hidden>
+            <button id="JohnButton" type="button" onclick="John()" class="btn btn-default">John</button>
+        </div>
+        
+        <div id="Yuan" hidden>
+            <button id="YuanButton" type="button" onclick="Yuan()" class="btn btn-default">Yuan</button>
+        </div> 
+        
+        <div id="Glen" hidden>
+            <button id="GlenButton" type="button" onclick="Glen()" class="btn btn-default">Glen</button>
+        </div>
+        
+        <div id="ChangeColor" hidden>
+            <button type="button" onclick="ChangeColor()" class="btn btn-primary"></button>
+        </div>
+        
+        <p id="JackWords" hidden>Wait till the timer is gone and you will win</p>
+        
+        <p id="GarettWords" hidden>Click on the name of the person below me three more times; do not believe anything Jack says </p>
+        
+        <p id="JohnWords" hidden>I think Garett is evil, but maybe Yuan is evil as well, idk</p>
+       
+        <p id="YuanWords" hidden> John is delirious, don't listen to him and any other person; you should keep searching for clues</p>
+        
+        <p id="clue" hidden>Change Color</p>
+        
+        <p id="GlenWords" hidden>You shall find the truth in the dark</p>
+        
+        <p id="answer" hidden>Do what Garett said but in the opposite direction, if you still remember!
+        AHAHAHAHAHAHAHAHAHHAHAHA</p>
+        
+        <p id="countdown"></p>
+        
+        
+        
+        <script>     
+            //Jack button function
+            function Jack() {
+                $('#JackWords').fadeIn();
+                $('#JackButton').css({'color': 'black', 'border': '1px solid black'});
+                $('#Garett').fadeIn();
+            };
+            
+            //Garett button function
+            function Garett() {
+                $('#GarettWords').fadeIn();
+                $('#GarettButton').css({'color': 'black', 'border': '1px solid black'});
+                $('#John').fadeIn();
+            };
+            
+            //John button function
+            function John() {
+                $('#JohnWords').fadeIn();
+                $('#JohnButton').css({'color': 'black', 'border': '1px solid black'});
+                $('#Yuan').fadeIn();
+            };
+            
+            //Yuan button function
+            
+            var YuanCount = 0;
+            function Yuan() {
+                $('#YuanWords').fadeIn();
+                $('#YuanButton').css({'color': 'black', 'border': '1px solid black'});
+                $('#Glen').fadeIn();
+                YuanCount = YuanCount + 1;
+                if (YuanCount == 4) {
+                    window.location.replace('levelEleven.html')
+                }
+            };
+            
+            //Glen button function
+            var GlenCount = 0;
+            function Glen() {
+                $('#GlenWords').fadeIn();
+                $('#GlenButton').css({'color': 'black', 'border': '1px solid black'});
+                $('#ChangeColor').fadeIn();
+                $('#clue').fadeIn();
+                $('#answer').fadeIn();
+                GlenCount = GlenCount + 1;
+                if (GlenCount == 4) {
+                    alert('You lost!');
+                    window.location.replace('index.html')
+                }
+            };
+            
+            //change background color to black
+            function ChangeColor() {
+                $('body').css('background-color', 'black');
+                $('#GarettWords').fadeOut();
+            };
+            
+            //timer code
+            var countdown = 41;
+            setInterval(function(){
+                if (countdown > -1) {
+                $('#countdown').text(countdown.toString());
+                countdown = countdown - 1;
+                }
+                else {
+                    alert("you lost");
+                    window.location.replace('index.html');
+                };
+            },1000);
+           
+        
+        </script>
+    
+    </body>
+
+
+
+</html>
